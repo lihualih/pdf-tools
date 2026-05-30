@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split PDF - Extract Pages from PDF Online Free | PDF Tools</title>
+    <meta name="description" content="Split PDF files and extract specific pages. Free online PDF splitter. Choose pages or page ranges. 100% client-side processing.">
+    <meta name="keywords" content="split PDF, extract PDF pages, PDF splitter, split PDF online, separate PDF pages, free PDF splitter">
+    <link rel="canonical" href="https://pdf-tools.example.com/tools/split.html">
+
+    <meta property="og:title" content="Split PDF - Extract Pages from PDF Online Free">
+    <meta property="og:description" content="Split PDF files and extract specific pages. Free online PDF splitter. 100% client-side processing.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <span class="logo-text">PDF <span>Tools</span></span>
+            </a>
+
+            <nav class="nav">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="merge.html">Merge PDF</a></li>
+                    <li><a href="split.html" class="active">Split PDF</a></li>
+                    <li><a href="compress.html">Compress</a></li>
+                    <li><a href="pdf-to-image.html">PDF to Image</a></li>
+                    <li><a href="image-to-pdf.html">Image to PDF</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="tool-page">
+        <div class="container">
+            <!-- Tool Header -->
+            <div class="tool-header">
+                <div class="tool-header-icon" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%); color: #10b981;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                </div>
+                <h1>Split PDF File</h1>
+                <p>Extract specific pages or page ranges from your PDF. Select pages visually or enter page numbers.</p>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon" style="background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                </div>
+                <h3>Drop a PDF file here</h3>
+                <p>or click to browse files</p>
+                <div class="upload-formats">
+                    <span class="format-badge">PDF</span>
+                </div>
+                <input type="file" id="file-input" accept=".pdf">
+            </div>
+
+            <!-- PDF Preview & Page Selection -->
+            <div id="split-options" style="display: none;">
+                <!-- File Info -->
+                <div class="file-item" style="margin-top: 2rem;">
+                    <div class="file-item-icon pdf">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="file-item-info">
+                        <div class="file-item-name" id="pdf-name">-</div>
+                        <div class="file-item-size" id="pdf-info">-</div>
+                    </div>
+                    <button class="file-item-btn delete" onclick="resetTool()" title="Remove">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Split Mode Options -->
+                <div class="options-panel">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Split Options
+                    </h3>
+
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <label class="option-label">Split Mode</label>
+                            <select class="option-select" id="split-mode" onchange="updateSplitMode()">
+                                <option value="select">Select Pages</option>
+                                <option value="range">Page Range</option>
+                                <option value="every">Every N Pages</option>
+                                <option value="single">Split into Single Pages</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group" id="range-group" style="display: none;">
+                            <label class="option-label">Page Range</label>
+                            <input type="text" class="page-range-input" id="page-range" placeholder="e.g., 1-3, 5, 7-10">
+                            <span class="page-range-hint">Use commas to separate ranges. Example: 1-3, 5, 7-10</span>
+                        </div>
+
+                        <div class="option-group" id="every-group" style="display: none;">
+                            <label class="option-label">Every N Pages</label>
+                            <input type="number" class="option-input" id="every-n" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Selector (for select mode) -->
+                <div id="page-selector-container">
+                    <div class="page-controls">
+                        <div class="page-controls-info">
+                            <span id="selected-count">0</span> of <span id="total-pages">0</span> pages selected
+                        </div>
+                        <div>
+                            <button class="btn btn-ghost btn-sm" onclick="selectAll()">Select All</button>
+                            <button class="btn btn-ghost btn-sm" onclick="deselectAll()">Deselect All</button>
+                        </div>
+                    </div>
+                    <div class="page-selector" id="page-selector">
+                        <!-- Pages will be rendered here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Preparing...</p>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar" id="action-bar" style="display: none;">
+                <button class="btn btn-primary btn-lg" id="split-btn" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    Split PDF
+                </button>
+            </div>
+
+            <!-- Result Section -->
+            <div class="result-section" id="result-section"></div>
+
+            <!-- Ad Placeholder -->
+            <div class="ad-placeholder">
+                <span>Advertisement</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDF Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        // ============================================
+        // Split PDF Tool
+        // ============================================
+        (function() {
+            const { PDFDocument } = PDFLib;
+
+            let pdfFile = null;
+            let pdfBytes = null;
+            let pdfDoc = null;
+            let totalPages = 0;
+            let selectedPages = new Set();
+
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('file-input');
+            const splitOptions = document.getElementById('split-options');
+            const actionBar = document.getElementById('action-bar');
+            const splitBtn = document.getElementById('split-btn');
+
+            // Initialize drag & drop
+            DragDrop.init(uploadArea, handleFile);
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFile(Array.from(e.target.files));
+                }
+            });
+
+            async function handleFile(files) {
+                const file = files.find(f => FileUtils.isPDF(f));
+                if (!file) {
+                    Toast.warning('Please select a PDF file.');
+                    return;
+                }
+
+                pdfFile = file;
+                document.getElementById('pdf-name').textContent = file.name;
+                document.getElementById('pdf-info').textContent = FileUtils.formatSize(file.size);
+
+                try {
+                    pdfBytes = await FileUtils.readAsArrayBuffer(file);
+                    pdfDoc = await PDFDocument.load(pdfBytes);
+                    totalPages = pdfDoc.getPageCount();
+
+                    document.getElementById('total-pages').textContent = totalPages;
+                    uploadArea.style.display = 'none';
+                    splitOptions.style.display = 'block';
+                    actionBar.style.display = 'flex';
+
+                    selectedPages = new Set();
+                    for (let i = 1; i <= totalPages; i++) selectedPages.add(i);
+                    updateSelectedCount();
+
+                    await renderPageThumbs();
+                    Toast.success(`PDF loaded: ${totalPages} pages`);
+                } catch (err) {
+                    console.error(err);
+                    Toast.error('Failed to load PDF. Please try another file.');
+                }
+            }
+
+            async function renderPageThumbs() {
+                const container = document.getElementById('page-selector');
+                container.innerHTML = '<div style="text-align:center;padding:2rem;">Loading page previews...</div>';
+
+                const pdfjsDoc = await pdfjsLib.getDocument({ data: pdfBytes.slice(0) }).promise;
+                container.innerHTML = '';
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const page = await pdfjsDoc.getPage(i);
+                    const viewport = page.getViewport({ scale: 0.5 });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+                    await page.render({ canvasContext: ctx, viewport }).promise;
+
+                    const div = document.createElement('div');
+                    div.className = 'page-thumb selected';
+                    div.dataset.page = i;
+                    div.innerHTML = `
+                        <div class="check-mark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div class="page-num">Page ${i}</div>
+                    `;
+                    div.style.backgroundImage = `url(${canvas.toDataURL()})`;
+                    div.style.backgroundSize = 'cover';
+                    div.style.backgroundPosition = 'center';
+
+                    div.addEventListener('click', () => togglePage(i, div));
+                    container.appendChild(div);
+                }
+            }
+
+            function togglePage(pageNum, element) {
+                if (selectedPages.has(pageNum)) {
+                    selectedPages.delete(pageNum);
+                    element.classList.remove('selected');
+                } else {
+                    selectedPages.add(pageNum);
+                    element.classList.add('selected');
+                }
+                updateSelectedCount();
+            }
+
+            function updateSelectedCount() {
+                document.getElementById('selected-count').textContent = selectedPages.size;
+                splitBtn.disabled = selectedPages.size === 0;
+            }
+
+            window.selectAll = function() {
+                for (let i = 1; i <= totalPages; i++) selectedPages.add(i);
+                document.querySelectorAll('.page-thumb').forEach(el => el.classList.add('selected'));
+                updateSelectedCount();
+            };
+
+            window.deselectAll = function() {
+                selectedPages.clear();
+                document.querySelectorAll('.page-thumb').forEach(el => el.classList.remove('selected'));
+                updateSelectedCount();
+            };
+
+            window.updateSplitMode = function() {
+                const mode = document.getElementById('split-mode').value;
+                document.getElementById('range-group').style.display = mode === 'range' ? 'block' : 'none';
+                document.getElementById('every-group').style.display = mode === 'every' ? 'block' : 'none';
+                document.getElementById('page-selector-container').style.display = mode === 'select' ? 'block' : 'none';
+            };
+
+            window.resetTool = function() {
+                pdfFile = null;
+                pdfBytes = null;
+                pdfDoc = null;
+                totalPages = 0;
+                selectedPages.clear();
+                uploadArea.style.display = 'block';
+                splitOptions.style.display = 'none';
+                actionBar.style.display = 'none';
+                ResultHandler.hide();
+                document.getElementById('page-selector').innerHTML = '';
+            };
+
+            function getPagesToExtract() {
+                const mode = document.getElementById('split-mode').value;
+
+                if (mode === 'select') {
+                    return Array.from(selectedPages).sort((a, b) => a - b);
+                }
+
+                if (mode === 'range') {
+                    const rangeStr = document.getElementById('page-range').value;
+                    return parsePageRange(rangeStr);
+                }
+
+                if (mode === 'every') {
+                    const n = parseInt(document.getElementById('every-n').value) || 1;
+                    const pages = [];
+                    for (let i = 1; i <= totalPages; i += n) {
+                        pages.push(i);
+                    }
+                    return pages;
+                }
+
+                if (mode === 'single') {
+                    return Array.from({ length: totalPages }, (_, i) => i + 1);
+                }
+
+                return [];
+            }
+
+            function parsePageRange(str) {
+                const pages = new Set();
+                const parts = str.split(',');
+                for (const part of parts) {
+                    const trimmed = part.trim();
+                    if (trimmed.includes('-')) {
+                        const [start, end] = trimmed.split('-').map(Number);
+                        if (!isNaN(start) && !isNaN(end)) {
+                            for (let i = Math.max(1, start); i <= Math.min(totalPages, end); i++) {
+                                pages.add(i);
+                            }
+                        }
+                    } else {
+                        const num = parseInt(trimmed);
+                        if (!isNaN(num) && num >= 1 && num <= totalPages) {
+                            pages.add(num);
+                        }
+                    }
+                }
+                return Array.from(pages).sort((a, b) => a - b);
+            }
+
+            splitBtn.addEventListener('click', async () => {
+                const pages = getPagesToExtract();
+                if (pages.length === 0) {
+                    Toast.warning('No pages selected.');
+                    return;
+                }
+
+                splitBtn.disabled = true;
+                ProgressHandler.init('progress-container');
+                ProgressHandler.show();
+
+                try {
+                    const mode = document.getElementById('split-mode').value;
+
+                    if (mode === 'single') {
+                        // Split into individual files
+                        for (let i = 0; i < pages.length; i++) {
+                            const pageNum = pages[i];
+                            ProgressHandler.update(
+                                (i / pages.length) * 100,
+                                `Extracting page ${pageNum}...`
+                            );
+
+                            const newPdf = await PDFDocument.create();
+                            const [copiedPage] = await newPdf.copyPages(pdfDoc, [pageNum - 1]);
+                            newPdf.addPage(copiedPage);
+                            const bytes = await newPdf.save();
+                            const baseName = pdfFile.name.replace('.pdf', '');
+                            FileUtils.downloadBytes(bytes, `${baseName}_page${pageNum}.pdf`);
+                            await Utils.sleep(200); // Small delay between downloads
+                        }
+                        Toast.success(`${pages.length} pages extracted!`);
+                    } else {
+                        // Extract selected pages into one file
+                        ProgressHandler.update(20, 'Extracting pages...');
+                        const newPdf = await PDFDocument.create();
+                        const copiedPages = await newPdf.copyPages(pdfDoc, pages.map(p => p - 1));
+                        copiedPages.forEach(page => newPdf.addPage(page));
+
+                        ProgressHandler.update(80, 'Generating PDF...');
+                        const bytes = await newPdf.save();
+
+                        ProgressHandler.update(100, 'Complete!');
+
+                        const baseName = pdfFile.name.replace('.pdf', '');
+                        ResultHandler.init('result-section');
+                        ResultHandler.show(
+                            'PDF Split Successfully!',
+                            `${pages.length} pages extracted (${FileUtils.formatSize(bytes.length)})`,
+                            () => FileUtils.downloadBytes(bytes, `${baseName}_split.pdf`)
+                        );
+                        Toast.success('PDF split successfully!');
+                    }
+
+                } catch (error) {
+                    console.error('Split error:', error);
+                    Toast.error('Error splitting PDF. Please try again.');
+                } finally {
+                    splitBtn.disabled = false;
+                    setTimeout(() => ProgressHandler.hide(), 1000);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
