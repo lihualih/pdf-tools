@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF - Convert JPG/PNG to PDF Online Free | PDF Tools</title>
+    <meta name="description" content="Convert images (JPG, PNG, GIF, WebP) to PDF. Free online image to PDF converter. 100% client-side processing.">
+    <meta name="keywords" content="image to PDF, JPG to PDF, PNG to PDF, convert image to PDF, image PDF converter, free image to PDF">
+    <link rel="canonical" href="https://pdf-tools.example.com/tools/image-to-pdf.html">
+
+    <meta property="og:title" content="Image to PDF - Convert JPG/PNG to PDF Online Free">
+    <meta property="og:description" content="Convert images (JPG, PNG, GIF, WebP) to PDF. Free online converter. 100% client-side processing.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <span class="logo-text">PDF <span>Tools</span></span>
+            </a>
+
+            <nav class="nav">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="merge.html">Merge PDF</a></li>
+                    <li><a href="split.html">Split PDF</a></li>
+                    <li><a href="compress.html">Compress</a></li>
+                    <li><a href="pdf-to-image.html">PDF to Image</a></li>
+                    <li><a href="image-to-pdf.html" class="active">Image to PDF</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="tool-page">
+        <div class="container">
+            <!-- Tool Header -->
+            <div class="tool-header">
+                <div class="tool-header-icon" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%); color: #ec4899;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h1>Images to PDF</h1>
+                <p>Convert your JPG, PNG, GIF, or WebP images into a single PDF document. Drag to reorder.</p>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                </div>
+                <h3>Drop image files here</h3>
+                <p>or click to browse files</p>
+                <div class="upload-formats">
+                    <span class="format-badge">JPG</span>
+                    <span class="format-badge">PNG</span>
+                    <span class="format-badge">GIF</span>
+                    <span class="format-badge">WebP</span>
+                    <span class="format-badge">BMP</span>
+                </div>
+                <input type="file" id="file-input" accept="image/*" multiple>
+            </div>
+
+            <!-- File List & Options -->
+            <div id="image-options" style="display: none;">
+                <!-- File List -->
+                <div class="file-list">
+                    <div class="file-list-header">
+                        <h3>Selected Images (<span id="file-count">0</span>)</h3>
+                        <div class="file-list-actions">
+                            <button class="btn btn-ghost btn-sm" id="add-more-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                                Add More
+                            </button>
+                            <button class="btn btn-ghost btn-sm" id="clear-all-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+                    <div id="files-container"></div>
+                </div>
+
+                <!-- Options -->
+                <div class="options-panel">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        PDF Options
+                    </h3>
+
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <label class="option-label">Page Size</label>
+                            <select class="option-select" id="page-size">
+                                <option value="auto">Auto (Fit to Image)</option>
+                                <option value="a4">A4 (210 x 297 mm)</option>
+                                <option value="letter">Letter (8.5 x 11 in)</option>
+                                <option value="fit">Fit Image (No margins)</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Orientation</label>
+                            <select class="option-select" id="orientation">
+                                <option value="auto">Auto (Based on Image)</option>
+                                <option value="portrait">Portrait</option>
+                                <option value="landscape">Landscape</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Margin</label>
+                            <select class="option-select" id="margin-size">
+                                <option value="none">No Margin</option>
+                                <option value="small">Small (10mm)</option>
+                                <option value="medium" selected>Medium (20mm)</option>
+                                <option value="large">Large (30mm)</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="fit-page" checked>
+                                <span class="checkbox-label">Fit image to page</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Preparing...</p>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar" id="action-bar" style="display: none;">
+                <button class="btn btn-primary btn-lg" id="convert-btn" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Create PDF
+                </button>
+            </div>
+
+            <!-- Result Section -->
+            <div class="result-section" id="result-section"></div>
+
+            <!-- Ad Placeholder -->
+            <div class="ad-placeholder">
+                <span>Advertisement</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDF Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        // ============================================
+        // Image to PDF Tool
+        // ============================================
+        (function() {
+            const { PDFDocument } = PDFLib;
+
+            let imageFiles = [];
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('file-input');
+            const imageOptions = document.getElementById('image-options');
+            const filesContainer = document.getElementById('files-container');
+            const fileCount = document.getElementById('file-count');
+            const actionBar = document.getElementById('action-bar');
+            const convertBtn = document.getElementById('convert-btn');
+            const addMoreBtn = document.getElementById('add-more-btn');
+            const clearAllBtn = document.getElementById('clear-all-btn');
+
+            // Initialize drag & drop
+            DragDrop.init(uploadArea, handleFiles);
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(Array.from(e.target.files));
+                fileInput.value = '';
+            });
+
+            addMoreBtn.addEventListener('click', () => fileInput.click());
+            clearAllBtn.addEventListener('click', () => {
+                imageFiles = [];
+                updateFileList();
+            });
+
+            function handleFiles(newFiles) {
+                const images = newFiles.filter(f => FileUtils.isImage(f));
+                if (images.length === 0) {
+                    Toast.warning('Please select image files only.');
+                    return;
+                }
+                imageFiles = [...imageFiles, ...images];
+                updateFileList();
+                Toast.success(`${images.length} image(s) added.`);
+            }
+
+            function updateFileList() {
+                if (imageFiles.length === 0) {
+                    imageOptions.style.display = 'none';
+                    actionBar.style.display = 'none';
+                    convertBtn.disabled = true;
+                    return;
+                }
+
+                imageOptions.style.display = 'block';
+                actionBar.style.display = 'flex';
+                convertBtn.disabled = false;
+                fileCount.textContent = imageFiles.length;
+
+                filesContainer.innerHTML = imageFiles.map((file, index) => `
+                    <div class="file-item" data-index="${index}" draggable="true">
+                        <div class="drag-handle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                            </svg>
+                        </div>
+                        <div class="file-item-icon image">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="file-item-info">
+                            <div class="file-item-name">${file.name}</div>
+                            <div class="file-item-size">${FileUtils.formatSize(file.size)}</div>
+                        </div>
+                        <div class="file-item-actions">
+                            <button class="file-item-btn" onclick="moveImage(${index}, -1)" title="Move up" ${index === 0 ? 'disabled' : ''}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                </svg>
+                            </button>
+                            <button class="file-item-btn" onclick="moveImage(${index}, 1)" title="Move down" ${index === imageFiles.length - 1 ? 'disabled' : ''}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <button class="file-item-btn delete" onclick="removeImage(${index})" title="Remove">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+
+                initDragReorder();
+            }
+
+            window.moveImage = function(index, direction) {
+                const newIndex = index + direction;
+                if (newIndex < 0 || newIndex >= imageFiles.length) return;
+                [imageFiles[index], imageFiles[newIndex]] = [imageFiles[newIndex], imageFiles[index]];
+                updateFileList();
+            };
+
+            window.removeImage = function(index) {
+                imageFiles.splice(index, 1);
+                updateFileList();
+            };
+
+            function initDragReorder() {
+                const items = filesContainer.querySelectorAll('.file-item');
+                let draggedItem = null;
+
+                items.forEach(item => {
+                    item.addEventListener('dragstart', () => {
+                        draggedItem = item;
+                        setTimeout(() => item.style.opacity = '0.5', 0);
+                    });
+
+                    item.addEventListener('dragend', () => {
+                        draggedItem = null;
+                        items.forEach(i => i.style.opacity = '1');
+                    });
+
+                    item.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                        if (draggedItem === item) return;
+                        const rect = item.getBoundingClientRect();
+                        const midY = rect.top + rect.height / 2;
+                        if (e.clientY < midY) {
+                            item.parentNode.insertBefore(draggedItem, item);
+                        } else {
+                            item.parentNode.insertBefore(draggedItem, item.nextSibling);
+                        }
+                    });
+                });
+
+                filesContainer.addEventListener('dragend', () => {
+                    const newOrder = Array.from(filesContainer.querySelectorAll('.file-item')).map(el => parseInt(el.dataset.index));
+                    imageFiles = newOrder.map(i => imageFiles[i]);
+                    updateFileList();
+                });
+            }
+
+            function loadImage(src) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => resolve(img);
+                    img.onerror = reject;
+                    img.src = src;
+                });
+            }
+
+            convertBtn.addEventListener('click', async () => {
+                if (imageFiles.length === 0) {
+                    Toast.warning('Please add at least one image.');
+                    return;
+                }
+
+                convertBtn.disabled = true;
+                ProgressHandler.init('progress-container');
+                ProgressHandler.show();
+
+                try {
+                    const pageSize = document.getElementById('page-size').value;
+                    const orientation = document.getElementById('orientation').value;
+                    const marginOption = document.getElementById('margin-size').value;
+                    const fitPage = document.getElementById('fit-page').checked;
+
+                    const margins = { none: 0, small: 10, medium: 20, large: 30 };
+                    const margin = margins[marginOption] || 20;
+
+                    const pdfDoc = await PDFDocument.create();
+
+                    for (let i = 0; i < imageFiles.length; i++) {
+                        const file = imageFiles[i];
+                        ProgressHandler.update(
+                            (i / imageFiles.length) * 80,
+                            `Processing ${file.name}...`
+                        );
+
+                        const dataUrl = await FileUtils.readAsDataURL(file);
+                        const img = await loadImage(dataUrl);
+
+                        let pageWidth, pageHeight;
+
+                        if (pageSize === 'auto' || pageSize === 'fit') {
+                            // Use image dimensions
+                            pageWidth = img.width;
+                            pageHeight = img.height;
+                        } else if (pageSize === 'a4') {
+                            pageWidth = 595.28; // A4 in points
+                            pageHeight = 841.89;
+                        } else if (pageSize === 'letter') {
+                            pageWidth = 612;
+                            pageHeight = 792;
+                        }
+
+                        // Handle orientation
+                        const isLandscape = orientation === 'landscape' || (orientation === 'auto' && img.width > img.height);
+                        if (isLandscape && pageSize !== 'fit') {
+                            [pageWidth, pageHeight] = [pageHeight, pageWidth];
+                        }
+
+                        const page = pdfDoc.addPage([pageWidth, pageHeight]);
+
+                        // Embed image
+                        let embeddedImage;
+                        if (file.type === 'image/png') {
+                            embeddedImage = await pdfDoc.embedPng(dataUrl);
+                        } else {
+                            embeddedImage = await pdfDoc.embedJpg(dataUrl);
+                        }
+
+                        // Calculate image position and size
+                        const marginPt = margin * 2.835; // mm to points
+                        const availableWidth = pageWidth - (marginPt * 2);
+                        const availableHeight = pageHeight - (marginPt * 2);
+
+                        let drawWidth, drawHeight;
+
+                        if (fitPage) {
+                            // Fit image to available space maintaining aspect ratio
+                            const imgAspect = img.width / img.height;
+                            const pageAspect = availableWidth / availableHeight;
+
+                            if (imgAspect > pageAspect) {
+                                drawWidth = availableWidth;
+                                drawHeight = availableWidth / imgAspect;
+                            } else {
+                                drawHeight = availableHeight;
+                                drawWidth = availableHeight * imgAspect;
+                            }
+                        } else {
+                            // Use original image size, but cap at page size
+                            drawWidth = Math.min(img.width, availableWidth);
+                            drawHeight = Math.min(img.height, availableHeight);
+                        }
+
+                        // Center image on page
+                        const x = (pageWidth - drawWidth) / 2;
+                        const y = (pageHeight - drawHeight) / 2;
+
+                        page.drawImage(embeddedImage, {
+                            x,
+                            y,
+                            width: drawWidth,
+                            height: drawHeight
+                        });
+                    }
+
+                    ProgressHandler.update(90, 'Generating PDF...');
+
+                    const pdfBytes = await pdfDoc.save();
+
+                    ProgressHandler.update(100, 'Complete!');
+
+                    ResultHandler.init('result-section');
+                    ResultHandler.show(
+                        'PDF Created Successfully!',
+                        `${imageFiles.length} images converted to PDF (${FileUtils.formatSize(pdfBytes.length)})`,
+                        () => FileUtils.downloadBytes(pdfBytes, 'images.pdf')
+                    );
+
+                    Toast.success('PDF created successfully!');
+
+                } catch (error) {
+                    console.error('Convert error:', error);
+                    Toast.error('Error creating PDF. Please try again.');
+                } finally {
+                    convertBtn.disabled = false;
+                    setTimeout(() => ProgressHandler.hide(), 1000);
+                }
+            });
+        })();
+    </script>
+  <script src="../js/monetize.js"></script>
+</body>
+</html>

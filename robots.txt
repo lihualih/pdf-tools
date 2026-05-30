@@ -1,0 +1,12 @@
+# robots.txt for PDF Tools
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pdf-tools.example.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 10
+
+# Disallow admin or internal paths (if any)
+# Disallow: /admin/
